@@ -1,0 +1,65 @@
+/*Database: sportyshoes*/
+-------------------------
+
+/*Table Information*/
+---------------------
+
+Name                Engine  Version  Row_format    Rows  Avg_row_length  Data_length   Max_data_length  Index_length  Data_free  Auto_increment  Create_time          Update_time          Check_time  Collation          Checksum  Create_options  Comment  
+------------------  ------  -------  ----------  ------  --------------  -----------  ----------------  ------------  ---------  --------------  -------------------  -------------------  ----------  -----------------  --------  --------------  ---------
+category            InnoDB       10  Compact          3            5461        16384                 0             0    3145728          (NULL)  2023-02-15 20:38:42  (NULL)               (NULL)      latin1_swedish_ci    (NULL)                           
+hibernate_sequence  MyISAM       10  Fixed            1               9            9  2533274790395903          1024          0          (NULL)  2023-02-12 07:33:07  2023-02-18 11:47:59  (NULL)      latin1_swedish_ci    (NULL)                           
+products            MyISAM       10  Dynamic          1              24           48   281474976710655          2048         24          (NULL)  2023-02-12 07:40:56  2023-02-18 11:49:10  (NULL)      latin1_swedish_ci    (NULL)                           
+purchasereport      InnoDB       10  Compact          4            4096        16384                 0             0    3145728          (NULL)  2023-02-18 21:06:46  (NULL)               (NULL)      latin1_swedish_ci    (NULL)                           
+users               InnoDB       10  Compact          3            5461        16384                 0             0    3145728          (NULL)  2023-02-18 18:58:10  (NULL)               (NULL)      latin1_swedish_ci    (NULL)                           
+--
+/*Table: category*/
+-------------------
+
+/*Column Information*/
+----------------------
+
+Field         Type         Collation          Null    Key     Default  Extra   Privileges                       Comment  
+------------  -----------  -----------------  ------  ------  -------  ------  -------------------------------  ---------
+CategoryName  varchar(30)  latin1_swedish_ci  YES             (NULL)           select,insert,update,references           
+cid           int(11)      (NULL)             NO      PRI     (NULL)           select,insert,update,references           
+
+--
+/*Table: products*/
+-------------------
+
+/*Column Information*/
+----------------------
+
+Field     Type          Collation          Null    Key     Default  Extra   Privileges                       Comment  
+--------  ------------  -----------------  ------  ------  -------  ------  -------------------------------  ---------
+id        int(11)       (NULL)             NO      PRI     (NULL)           select,insert,update,references           
+product   varchar(255)  latin1_swedish_ci  YES             (NULL)           select,insert,update,references           
+category  varchar(255)  latin1_swedish_ci  YES             (NULL)           select,insert,update,references           
+
+--
+/*Table: purchasereport*/
+-------------------------
+
+/*Column Information*/
+----------------------
+
+Field     Type         Collation          Null    Key     Default  Extra   Privileges                       Comment  
+--------  -----------  -----------------  ------  ------  -------  ------  -------------------------------  ---------
+user      varchar(30)  latin1_swedish_ci  YES             (NULL)           select,insert,update,references           
+product   varchar(50)  latin1_swedish_ci  YES             (NULL)           select,insert,update,references           
+qty       int(20)      (NULL)             YES             (NULL)           select,insert,update,references           
+category  varchar(30)  latin1_swedish_ci  YES             (NULL)           select,insert,update,references           
+date      varchar(20)  latin1_swedish_ci  YES             (NULL)           select,insert,update,references           
+
+--
+/*Table: users*/
+----------------
+
+/*Column Information*/
+----------------------
+
+Field     Type         Collation          Null    Key     Default  Extra   Privileges                       Comment  
+--------  -----------  -----------------  ------  ------  -------  ------  -------------------------------  ---------
+username  varchar(50)  latin1_swedish_ci  YES             (NULL)           select,insert,update,references           
+name      varchar(50)  latin1_swedish_ci  YES             (NULL)           select,insert,update,references           
+password  varchar(50)  latin1_swedish_ci  YES             (NULL)           select,insert,update,references           

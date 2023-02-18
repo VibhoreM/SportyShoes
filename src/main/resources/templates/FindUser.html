@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Users</title>
+</head>
+<body>
+	<h1 align="center"> Welcome to Sporty Shoes Admin HomePage!</h1>
+	<div align = "center">
+	<div align = "center" style="display: table-cell; vertical-align: middle; height: 60vh;" >
+		
+	<h3>Search User Result</h3>
+	
+	<table>
+			<thead>
+				<tr>
+					<th>Username</th>
+					<th>Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr >
+					<td th:text="${r_username}"></td>
+					<td th:text="${r_name}"></td>
+				</tr>
+			</tbody>
+		</table>
+	
+	</div>
+	</div>
+	
+</body>
+</html>

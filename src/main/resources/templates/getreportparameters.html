@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Products</title>
+</head>
+<body>
+	<h1 align="center"> Welcome to Sporty Shoes Get Report Filters</h1>
+	<div align = "center">
+	<div align = "center" style="display: table-cell; vertical-align: middle; height: 60vh;" >
+		<form action="getReport" method = "post">
+		
+		<label for="category">Category:</label>
+		<select name = "category">
+		   <option th:each="category : ${categories}" 
+		           th:text="${category}"
+		           th:value="${category}">
+		   </option>
+		</select>
+		
+		<br><br> 
+		
+		<label for="date">Date:</label>
+		<select name = "date">
+		   <option th:each="entry : ${report}" 
+		           th:text="${entry.getDate()}"
+		           th:value="${entry.getDate()}">
+		   </option>
+		</select>
+		
+		<br><br> 
+		
+		<input type="submit" value = "Find Purchases">
+		</form>
+		
+		<br><br>
+		<h2>All purchases</h2>
+		<br>
+		<table>
+			<thead>
+				<tr>
+					<th>User</th>
+					<th>Product</th>
+					<th>Quantity</th>
+					<th>Category</th>
+					<th>Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="entry : ${report}">
+					
+					<td th:text="${entry.getUser()}"></td>
+					<td th:text="${entry.getProduct()}"></td>
+					<td th:text="${entry.getQty()}"></td>
+					<td th:text="${entry.getCategory()}"></td>
+					<td th:text="${entry.getDate()}"></td>
+					
+				</tr>
+			</tbody>
+		</table>
+		
+		
+	
+	</div>
+	</div>
+	
+</body>
+</html>

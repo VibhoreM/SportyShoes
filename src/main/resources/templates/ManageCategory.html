@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 align="center"> Welcome to Sporty Shoes Admin HomePage!</h1>
+	<div align = "center">
+	<div align = "center" style="display: table-cell; vertical-align: middle; height: 60vh;" >
+		<form action="AddCategory" method = "post">
+		<label>Enter New Category name </label> <input type="text" name="cname">
+				<br><br> 
+		<input type="submit" value = "Add Catgory">
+		
+		<br><br>
+		<h3>Below are the Categories already configured</h3>
+		<table>
+		<thead>
+			<tr>
+				<th>Category ID</th>
+				<th>Category Name</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="category : ${categories}">
+				<td th:text="${category.getCid()}"></td>
+				<td th:text="${category.getCategoryName()}"></td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+	
+	<br><br>
+	
+	<form action="DeleteCategory" method = "post">
+		
+		<label>Enter Category ID to delete category </label>
+		 <input type="text" name="cid">
+				<br><br> 
+		<input type="submit" value = "Delete Catgory">
+	</form>
+	
+	</div>
+	</div>
+	
+</body>
+</html>

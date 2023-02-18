@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Products</title>
+</head>
+<body>
+	<h1 align="center"> Welcome to Sporty Shoes Admin HomePage!</h1>
+	<div align = "center">
+	<div align = "center" style="display: table-cell; vertical-align: middle; height: 60vh;" >
+		<form action="AddProduct" method = "post">
+		<label>Enter New Product name </label> <input type="text" name="pname">
+		<label for="cname">Category:</label>
+		<select name = "cname">
+		   <option th:each="category : ${categories}" 
+		           th:text="${category.getCategoryName()}"
+		           th:value="${category.getCategoryName()}">
+		   </option>
+		</select>
+				<br><br> 
+		<input type="submit" value = "Add Product">
+		
+		<br><br>
+		<h3>Below are the Products configured</h3>
+		<table>
+		<thead>
+			<tr>
+				<th>Product ID</th>
+				<th>Product Name</th>
+				<th>Category Name</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="product : ${products}">
+				<td th:text="${product.getId()}"></td>
+				<td th:text="${product.getProduct()}"></td>
+				<td th:text="${product.getCategory()}"></td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+	
+	<br><br>
+	
+	<form action="DeleteProduct" method = "post">
+		
+		<label>Enter Product ID to delete product </label>
+		 <input type="text" name="pid">
+				<br><br> 
+		<input type="submit" value = "Delete Product">
+	</form>
+	
+	</div>
+	</div>
+	
+</body>
+</html>
